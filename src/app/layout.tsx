@@ -1,25 +1,15 @@
-import Link from "next/link";
-import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "../styles/globals.css";
 
-export const metadata = {
-    title:"My Blog",
-    descrption:"A simple blog built with Next.js",
-};
-export default function RootLayout({
-  children,
-}:{
-  children: React.ReactNode;
-}){
-  return (
-    <html lang="en">
-      <body>
-        <nav style={{padding:"10px", borderBottom:"1px solid #ccc"}}>
-          <Link href="/" style={{marginRight:"15px"}}>Home</Link>
-          <Link href="/about" style={{marginRight:"15px"}}>About</Link>
-          <Link href="/posts">Blog</Link>
-        </nav>
-        <main style={{padding:"20px"}}>{children}</main>
-      </body>
-    </html>
-  )
+export default function RootLayout ({ children }: {children:React.ReactNode}){
+     return(
+       <html lang="en">
+          <body className="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1 container mx-auto p-4">{children}</main>
+            <Footer />
+          </body>
+       </html>
+     )
 }
